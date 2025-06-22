@@ -1,0 +1,28 @@
+{
+  "query": {
+    "county": "Monroe County",
+    "state": "Florida",
+    "country": "USA",
+    "date_from": "2025-06-19T17:06:00Z",
+    "date_to": "2025-06-20T17:06:00Z",
+    "generated_utc": "2025-06-20T17:06:00Z"
+  },
+  "articles": [
+    {
+      "id": "f3a2d70c6b5a1a945b4fe4c2a7e9d1b8d9c3e5f4",
+      "title": "FLORIDA KEYS OFFICIALS SIMULATE POST-STORM RECOVERY WITH EMERGENCY OPERATIONS CENTER DRILL",
+      "published_utc": "2025-06-20T00:00:00Z",
+      "source": "Keys Weekly",
+      "url": "https://keysweekly.com/42/florida-keys-officials-simulate-post-storm-recovery-with-emergency-operations-center-drill/",
+      "summary": "Monroe County officials ran a three‑hour Emergency Operations Center drill June 13 to test hurricane‑season communication and recovery protocols."
+    },
+    {
+      "id": "a2d4b1e7c9581d6f7e3a4b2c6d9f5e7a8b1c2d3e",
+      "title": "INCOMING CAPTAIN ADAM GARRISON TAKES THE REINS FOR FWC IN THE FLORIDA KEYS",
+      "published_utc": "2025-06-20T00:00:00Z",
+      "source": "Keys Weekly",
+      "url": "https://keysweekly.com/42/incoming-captain-adam-garrison-takes-the-reins-for-fwc-in-the-florida-keys/",
+      "summary": "FWC Captain Adam Garrison, a longtime Keys resident, is succeeding Capt. Dipre to lead wildlife law enforcement operations in Monroe County."
+    }
+  ]
+}

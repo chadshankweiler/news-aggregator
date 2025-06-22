@@ -1,0 +1,36 @@
+{
+  "query": {
+    "county": "Palm Beach County",
+    "state": "Florida",
+    "country": "USA",
+    "date_from": "2025-06-19T18:20:00Z",
+    "date_to": "2025-06-20T18:20:00Z",
+    "generated_utc": "2025-06-20T18:20:00Z"
+  },
+  "articles": [
+    {
+      "id": "a3b2f4d26c0e1f8bb1c3d45789e7f11234567890",
+      "title": "Royal Palm Beach man accused of battery after clash with teens over reckless driving",
+      "published_utc": "2025-06-20T13:45:00Z",
+      "source": "CBS12",
+      "url": "https://cbs12.com/news/local/royal-palm-beach-man-accused-of-battery-after-clash-with-teens-over-reckless-driving-victoria-groves-canterbury-plaza-june-20-2025",
+      "summary": "A 67‑year‑old Royal Palm Beach man allegedly struck a teen over reckless driving near Canterbury Plaza, telling him “If you want to live, get away from here.”"
+    },
+    {
+      "id": "b5c6d7e8f9a0b1c2d3e4f5767890123456789012",
+      "title": "Detour routes announced as rail crossing closure set to snarl Palm Beach Co. traffic",
+      "published_utc": "2025-06-20T00:00:00Z",
+      "source": "CBS12",
+      "url": "https://cw34.com/news/local/new-detour-routes-announced-as-rail-crossing-closure-set-to-snarl-palm-beach-co-traffic-south-florida-news-june-20-2025",
+      "summary": "Officials unveiled detour plans ahead of a rail crossing closure expected to cause severe traffic disruptions across Palm Beach County."
+    },
+    {
+      "id": "c1d2e3f4a5b6c7d8e9f012345678901234567890",
+      "title": "Palm Beach County student calls for safer roads following car wreck",
+      "published_utc": "2025-06-20T16:20:00Z",
+      "source": "WFLX",
+      "url": "https://www.wflx.com/news/local/palm-beach-county-student-calls-for-safer-roads-following-car-wreck",
+      "summary": "A local student is urging enhanced road safety measures after being injured in a vehicular accident in Palm Beach County."
+    }
+  ]
+}
