@@ -11,11 +11,12 @@ conn = psycopg2.connect("dbname=postgres user=postgres password=lol host=localho
 
 cur = conn.cursor()
 
-check = glob.glob('**/*.txt', recursive=True, include_hidden=True)
+check = glob.glob('news/**/*.txt', recursive=True, include_hidden=True)
+
 
 rows = []
 
-doc = json.load(open(check[0]))
+doc = json.load(open(check[3]))
 meta = doc["query"]
 for article in doc["articles"]:
     sha = article["id"] or canonical_sha(article["title"], article["summary"])

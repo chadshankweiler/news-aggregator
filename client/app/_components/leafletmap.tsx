@@ -48,7 +48,6 @@ export default function LeafletMap() {
                     style={{ color: "red", weight: 2, fill: true }}
                 />
             ))}
-            <MinimapControl position="topright" />
         </MapContainer>
     );
 }

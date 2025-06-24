@@ -8,8 +8,11 @@ const LeafletMap = dynamic(() => import("@/app/_components/leafletmap"), {
 
 export default function MapPage() {
     return (
-        <div style={{ height: "100vh", width: "50vw" }}>
-            <LeafletMap />
+        <div className="flex">
+            <div style={{ height: "100vh", width: "50vw" }}>
+                <LeafletMap />
+            </div>
+            <div>test</div>
         </div>
     );
 }
