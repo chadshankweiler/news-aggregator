@@ -1,5 +1,7 @@
 from flask import Flask, jsonify, request
-import subprocess
+import glob, json, psycopg2, hashlib, re, html, subprocess, os, re
+import psycopg2
+from psycopg2.extras import execute_values
 
 app = Flask(__name__)
 
@@ -11,17 +13,63 @@ def get_date():
 
 @app.route('/news', methods=["POST"])
 def add_guide():
-    payload = request.get_json(force=True, silent=True)
-    if not payload or "name" not in payload:
+    rows = []
+
+    raw = request.get_json(force=True, silent=True)
+    if not raw or "data" not in raw:
         return jsonify(error="JSON must contain 'name'"), 400
 
-    # Normally you’d write to a database; here we echo back a stub record
-    new_item = {
-        "id": 1,            # replace with real ID from your DB
-        "name": payload["name"],
-        "details": payload.get("details", "")
-    }
-    return jsonify(new_item), 201   
+    json_raw = json.loads(raw["data"])
+
+    articles = json_raw["articles"]
+
+    for a in articles: 
+        row = {
+            "id" : a.get("id"),
+            "title" : a.get("title"),
+            "published_utc" : a.get("published_utc"),
+            "source" : a.get("source"),
+            "url" : a.get("url"),
+            "summary" : a.get("summary"),
+        }
+        rows.append(row)
+
+    print(rows)
+
+    return jsonify(rows), 201   
+
+@app.route('/huh', methods=["POST"])
+def test():
+    pattern = re.compile(r"```json\s*(\{[\s\S]*?\})\s*```", re.DOTALL)
+
+    rows = []
+
+    raw = request.get_json(force=True, silent=True)
+    if not raw or "data" not in raw:
+        return jsonify(error="JSON must contain 'name'"), 400
+
+    markdown_block = raw["data"]
+
+    match = pattern.search(markdown_block)
+
+    payload = json.loads(match.group(1))
+
+    articles = payload["articles"]
+
+    for a in articles: 
+        row = {
+            "id" : a.get("id"),
+            "title" : a.get("title"),
+            "published_utc" : a.get("published_utc"),
+            "source" : a.get("source"),
+            "url" : a.get("url"),
+            "summary" : a.get("summary"),
+        }
+        rows.append(row)
+
+    print(rows)
+
+    return jsonify(payload), 201   
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
