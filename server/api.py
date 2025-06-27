@@ -11,6 +11,8 @@ def extract_location(text):
 
 def geocode_location(place_name):
     # Geocode to lat/lng (geopy/Nominatim or Google)
+    if (place_name):
+        return 
     return 25.7826, -80.1341  
 
 def categorize_article(title, summary):
@@ -48,7 +50,7 @@ def test():
     # raw data
     raw = request.get_json(force=True, silent=True)
     if not raw or "data" not in raw:
-        return jsonify(error="JSON must contain 'name'"), 400
+        return jsonify(error="Something broke"), 400
 
     markdown_block = raw["data"]
 
@@ -65,7 +67,14 @@ def test():
 
         # Placeholder for NLP & geocoding:
         location_name = extract_location(article["summary"] or article["title"])
-        latitude, longitude = geocode_location(location_name) if location_name else (None, None)
+        # latitude, longitude = geocode_location(location_name) if location_name else (None, None)
+        latitude = None
+        longitude = None
+
+
+        if "location" in article:
+            latitude = article["location"].get("lat")
+            longitude = article["location"].get("lon")
 
         rows.append((
             sha,
@@ -91,7 +100,7 @@ def test():
       (id, county, state, country, title, published_utc, source, url,
        summary, raw, location_name, geom, category, actionable, extracted_claims)
     VALUES %s
-    ON CONFLICT (id) DO NOTHING;
+    ON CONFLICT (url) DO NOTHING;
     """
 
     execute_values(cur, insert_sql, rows, template="(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,ST_GeomFromText(%s,4326),%s,%s,%s)", page_size=500)
