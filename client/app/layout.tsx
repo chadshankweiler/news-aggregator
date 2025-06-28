@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
-import 'leaflet/dist/leaflet.css';
+import "leaflet/dist/leaflet.css";
+import ReduxProvider from "./kepler/_components/redux-provider";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -37,7 +38,7 @@ export default function RootLayout({
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >
-                {children}
+                <ReduxProvider>{children}</ReduxProvider>
                 <Script
                     src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
                     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
